@@ -22,6 +22,7 @@ prefix="@prefix@"
 exec_prefix="@exec_prefix@"
 bindir="@bindir@"
 XBMC="${bindir}/xbmc --standalone $@"
+HOSTNAME=`cat /etc/hostname`
 
 @XBMC_STANDALONE_SH_PULSE@
 
@@ -31,6 +32,9 @@ LASTSUCCESSFULSTART=$(date +%s)
 
 while [ $(( $LOOP )) = "1" ]
 do
+  if [ $HOSTNAME = "linarotv-xbmc" ]; then
+    xset -dpms
+  fi
   $XBMC
   RET=$?
   NOW=$(date +%s)
