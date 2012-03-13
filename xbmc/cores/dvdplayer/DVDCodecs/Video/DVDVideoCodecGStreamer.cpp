@@ -226,8 +226,8 @@ void CDVDVideoCodecGStreamer::Dispose()
 
 int CDVDVideoCodecGStreamer::Decode(BYTE* pData, int iSize, double dts, double pts)
 {
-  while (pData && !(m_needData||m_reset||m_error))
-    usleep(1000);
+  if (pData && !(m_needData||m_reset||m_error))
+    usleep(10000);
 
   CSingleLock lock(m_monitorLock);
 
@@ -377,7 +377,7 @@ bool CDVDVideoCodecGStreamer::GetPicture(DVDVideoPicture* pDvdVideoPicture)
 
 void CDVDVideoCodecGStreamer::SetDropState(bool bDrop)
 {
-  m_drop = bDrop;
+//  m_drop = bDrop;
 }
 
 const char *CDVDVideoCodecGStreamer::GetName()
