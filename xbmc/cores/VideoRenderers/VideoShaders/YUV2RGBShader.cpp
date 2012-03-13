@@ -263,7 +263,7 @@ BaseYUV2RGBARBShader::BaseYUV2RGBARBShader(unsigned flags)
 }
 #endif
 
-
+#ifdef HAS_EGL
 //////////////////////////////////////////////////////////////////////
 // EGLImageExternalShader - YUV2RGB GL_OES_EGL_image_external extension
 // NOTE: this is a bit ugly, because don't have separate Y/U/V textures
@@ -317,7 +317,7 @@ bool EGLImageExternalShader::OnEnabled()
   VerifyGLState();
   return true;
 }
-
+#endif
 
 //////////////////////////////////////////////////////////////////////
 // YUV2RGBProgressiveShader - YUV2RGB with no deinterlacing

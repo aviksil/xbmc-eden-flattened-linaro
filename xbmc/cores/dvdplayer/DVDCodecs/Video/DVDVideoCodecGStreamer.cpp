@@ -29,6 +29,7 @@
 #include "windowing/WindowingFactory.h"
 #include <gst/app/gstappsrc.h>
 #include <gst/app/gstappsink.h>
+#ifdef HAS_EGL
 #include <EGL/egl.h>
 
 bool CDVDVideoCodecGStreamer::gstinitialized = false;
@@ -492,3 +493,4 @@ GstCaps *CDVDVideoCodecGStreamer::CreateVideoCaps(CDVDStreamInfo &hints, CDVDCod
 
   return caps;
 }
+#endif

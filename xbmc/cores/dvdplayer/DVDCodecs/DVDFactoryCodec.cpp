@@ -171,7 +171,7 @@ CDVDVideoCodec* CDVDFactoryCodec::CreateVideoCodec(CDVDStreamInfo &hint, unsigne
 
   CLog::Log(LOGDEBUG, "CDVDFactoryCodec: compiled in hardware support: %s", hwSupport.c_str());
 
-#if defined(HAVE_LIBGSTREAMER)
+#if defined(HAVE_LIBGSTREAMER) && defined(HAS_EGL)
   if (!hint.software)
   {
       CLog::Log(LOGINFO, "Trying GStreamer Video Decoder...");

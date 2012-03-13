@@ -267,9 +267,12 @@
   #else
     #include <GLES2/gl2.h>
     #include <GLES2/gl2ext.h>
-    #include <EGL/egl.h>
-    #include <EGL/eglext.h>
   #endif
+#endif
+
+#ifdef HAS_EGL
+#include <EGL/egl.h>
+#include <EGL/eglext.h>
 #endif
 
 #ifdef HAS_DVD_DRIVE

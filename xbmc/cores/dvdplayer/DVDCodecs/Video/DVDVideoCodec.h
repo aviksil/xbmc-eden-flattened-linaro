@@ -45,6 +45,7 @@ struct OpenMaxVideoBuffer;
   struct __CVBuffer;
 #endif
 
+#ifdef HAS_EGL
 class EGLImageHandle
 {
 public:
@@ -58,6 +59,7 @@ public:
   virtual EGLImageHandle * Ref() = 0;
   virtual void UnRef() = 0;
 };
+#endif
 
 // should be entirely filled by all codecs
 struct DVDVideoPicture
@@ -93,10 +95,12 @@ struct DVDVideoPicture
 #endif
   };
 
+#ifdef HAS_EGL
   // XXX move this into union, and use instead of data/iLineSize!!
     struct {
       EGLImageHandle *eglImageHandle;
     };
+#endif
 
   unsigned int iFlags;
 
@@ -131,7 +135,9 @@ struct DVDVideoPicture
     FMT_VAAPI,
     FMT_OMXEGL,
     FMT_CVBREF,
+#ifdef HAS_EGL
     FMT_EGLIMG,
+#endif
   } format;
 };
 
@@ -208,8 +214,10 @@ public:
    */ 
   virtual bool ClearPicture(DVDVideoPicture* pDvdVideoPicture)
   {
+#ifdef HAS_EGL
     if (pDvdVideoPicture->eglImageHandle)
       pDvdVideoPicture->eglImageHandle->UnRef();
+#endif
     memset(pDvdVideoPicture, 0, sizeof(DVDVideoPicture));
     return true;
   }
