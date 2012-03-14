@@ -132,10 +132,6 @@ config.log
 # /lib/
 /lib/Makefile
 
-# /lib/addons/
-/lib/addons/script.module.pil/
-!/lib/addons/script.module.pil/Makefile
-
 # /lib/asap/
 /lib/asap/Makefile
 /lib/asap/players.h
@@ -157,18 +153,12 @@ lib/cmyth/Makefile
 /lib/cpluff/config.h.in
 /lib/cpluff/config.h.in~
 /lib/cpluff/configure
-/lib/cpluff/console
-/lib/cpluff/doc*
-/lib/cpluff/examples
-/lib/cpluff/libcpluff/docsrc
 /lib/cpluff/libcpluff/Makefile.in
 /lib/cpluff/libtool
-/lib/cpluff/loader
 /lib/cpluff/m4
 /lib/cpluff/Makefile.in
 /lib/cpluff/po
 /lib/cpluff/stamp-h1
-/lib/cpluff/test
 /lib/cpluff/Makefile
 /lib/cpluff/libcpluff/Makefile
 /lib/cpluff/libcpluff/cpluffdef.h
@@ -497,7 +487,6 @@ lib/cmyth/Makefile
 /xbmc/Makefile
 
 # /xbmc/addons/
-/xbmc/addons/Makefile
 /xbmc/addons/visualization.waveform
 
 # /xbmc/osx/
